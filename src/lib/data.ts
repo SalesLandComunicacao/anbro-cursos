@@ -23,13 +23,13 @@ export const courses: Course[] = [
     institution: "Anbro × Clinicare Training",
     duration: "5 meses",
     workload: "100h de carga horária",
-    format: "Presencial — Fortaleza/CE",
+    format: "Presencial · clínica integrada — Fortaleza/CE",
     startDate: "Julho 2026 · T8",
     highlights: [
-      "Apto a atender em apenas 1 mês de curso",
+      "Atendimento clínico a partir do 1º módulo",
+      "Prática em pacientes reais em todos os módulos",
+      "Clínica integrada — atendimento dentro da Clinicare",
       "Certificado chancelado pela Clinicare",
-      "Prática supervisionada em pacientes reais",
-      "5 módulos teóricos + laboratoriais",
     ],
     modules: [
       {
@@ -83,7 +83,7 @@ export const courses: Course[] = [
 export const teachers = [
   {
     slug: "bruno-frota",
-    name: "Bruno Frota Amora Silva",
+    name: "Bruno Frota",
     photo: "/professores/bruno.jpg",
     titles: [
       "Pós-graduado em Implantodontia e Harmonização Orofacial",
@@ -106,7 +106,7 @@ export const teachers = [
   },
   {
     slug: "jose-romulo",
-    name: "José Rômulo de Medeiros",
+    name: "José Rômulo",
     photo: "/professores/romulo.jpg",
     titles: [
       "Residência em Cirurgia e Traumatologia Bucomaxilofacial",

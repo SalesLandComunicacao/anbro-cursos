@@ -240,7 +240,7 @@ function MoreInfo() {
     <Section
       eyebrow="Mais informações"
       title="O que você vai aprender no HOF Custom Training"
-      intro="Cinco módulos em formato teórico-laboratorial, com prática supervisionada em pacientes a partir do segundo encontro."
+      intro="Cinco módulos teórico-laboratoriais com clínica integrada — em todos eles você atende pacientes reais, do primeiro ao último encontro."
       variant="muted"
       id="programa"
     >
@@ -252,6 +252,9 @@ function MoreInfo() {
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="text-xl lg:text-2xl text-foreground">{m.title.replace(/^Módulo \d+ — /, "")}</h3>
+              <span className="text-[10px] tracking-[0.16em] uppercase bg-brand-lime/40 text-brand-dark px-2.5 py-1 rounded-full font-medium">
+                Prática clínica
+              </span>
               {m.date && (
                 <span className="ml-auto text-xs text-muted bg-brand-blue-soft px-3 py-1 rounded-full">
                   {m.date}
