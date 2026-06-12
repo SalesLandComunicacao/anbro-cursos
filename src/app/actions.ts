@@ -1,5 +1,6 @@
 "use server";
 
+import { connection } from "next/server";
 import { google } from "googleapis";
 import { courses, type CourseId } from "@/lib/data";
 
@@ -72,6 +73,7 @@ export async function submitEnrollment(
   _prev: EnrollState,
   formData: FormData,
 ): Promise<EnrollState> {
+  await connection();
   try {
     const data = {
       name: String(formData.get("name") ?? "").trim(),
