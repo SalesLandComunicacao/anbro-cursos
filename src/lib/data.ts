@@ -10,7 +10,7 @@ export type Course = {
   format: string;
   startDate: string;
   highlights: string[];
-  modules?: { title: string; topics: string[]; date?: string }[];
+  modules?: { title: string; topics: string[]; date?: string; practice?: string }[];
   ctaLabel: string;
   bgImage: string;
 };
@@ -26,8 +26,8 @@ export const courses: Course[] = [
     format: "Presencial · clínica integrada — Fortaleza/CE",
     startDate: "Julho 2026 · T8",
     highlights: [
-      "Atendimento clínico a partir do 1º módulo",
-      "Prática em pacientes reais em todos os módulos",
+      "Prática clínica a partir do 1º módulo",
+      "Atendimento em pacientes reais em todos os módulos",
       "Clínica integrada — atendimento dentro da Clinicare",
       "Certificado chancelado pela Clinicare",
     ],
@@ -36,26 +36,31 @@ export const courses: Course[] = [
         title: "Módulo 1 — Toxina Botulínica & Anatomia",
         date: "09–10 jul",
         topics: ["Análise facial", "Anatomia cervicofacial", "Fotografia HOF", "Toxina botulínica: protocolos individualizados"],
+        practice: "Toxina Botulínica",
       },
       {
         title: "Módulo 2 — Preenchedores de Ácido Hialurônico",
         date: "29–30 ago",
-        topics: ["Reologia", "Malar, lábios, sulco nasolabial e mento", "Estratégias de precificação", "Prática em pacientes"],
+        topics: ["Reologia", "Malar, lábios, sulco nasolabial e mento", "Estratégias de precificação"],
+        practice: "Toxina + Preenchimento",
       },
       {
         title: "Módulo 3 — Skin & Intradermoterapia",
         date: "26–27 set",
         topics: ["Gerenciamento de pele", "Skinbooster", "Microagulhamento", "Intradermoterapia"],
+        practice: "Toxina + Preenchimento + Skinbooster + Intradermoterapia",
       },
       {
         title: "Módulo 4 — Bioestimuladores & Fios PDO",
         date: "24–25 out",
-        topics: ["Hidroxiapatita de cálcio", "PLLA", "Fios de PDO lisos", "Prática supervisionada"],
+        topics: ["Hidroxiapatita de cálcio", "PLLA", "Fios de PDO lisos"],
+        practice: "Toxina + Preenchimento + Skinbooster + Intradermoterapia + Bioestimuladores + Fios PDO",
       },
       {
         title: "Módulo 5 — Tecnologia em HOF",
         date: "28–29 nov",
         topics: ["Ultrassom macro e microfocado (MPT)", "Laser não ablativo", "Manejo de intercorrências"],
+        practice: "Todos os procedimentos da grade — ao longo dos 5 meses você atende em todas as frentes",
       },
     ],
     ctaLabel: "Quero me inscrever — Clinicare",
@@ -67,13 +72,14 @@ export const courses: Course[] = [
     title: "Especialização em Harmonização Orofacial",
     institution: "Anbro × Universidade de Fortaleza (UNIFOR)",
     duration: "20 meses",
+    workload: "600h de carga horária",
     format: "Presencial — Fortaleza/CE",
     startDate: "Agosto 2026 · T3",
     highlights: [
+      "Prática clínica a partir do 3º módulo",
       "Certificado chancelado pela UNIFOR",
       "Professores mestres, doutores e pesquisadores",
       "Programa completo de especialização",
-      "Base científica, sem fórmulas prontas",
     ],
     ctaLabel: "Quero me inscrever — UNIFOR",
     bgImage: "/cursos/unifor-procedure.jpg",
@@ -119,9 +125,12 @@ export const teachers = [
 ] as const;
 
 export const testimonials = [
-  { name: "Felipe", video: "/depoimentos/felipe.mp4", poster: "/depoimentos/felipe.jpg" },
-  { name: "Renata", video: "/depoimentos/renata.mp4", poster: "/depoimentos/renata.jpg" },
-  { name: "Catarina", video: "/depoimentos/catarina.mp4", poster: "/depoimentos/catarina.jpg" },
+  { name: "Felipe", org: "Aluno(a) Clinicare", video: "/depoimentos/felipe.mp4", poster: "/depoimentos/felipe.jpg" },
+  { name: "Renata", org: "Aluno(a) Clinicare", video: "/depoimentos/renata.mp4", poster: "/depoimentos/renata.jpg" },
+  { name: "Catarina", org: "Aluno(a) Clinicare", video: "/depoimentos/catarina.mp4", poster: "/depoimentos/catarina.jpg" },
+  { name: "Ana Lara", org: "Aluno(a) UNIFOR", video: "/depoimentos/ana-lara.mp4", poster: "/depoimentos/ana-lara.jpg" },
+  { name: "Sarah", org: "Aluno(a) UNIFOR", video: "/depoimentos/sara.mp4", poster: "/depoimentos/sara.jpg" },
+  { name: "Luciane", org: "Aluno(a) UNIFOR", video: "/depoimentos/luciane.mp4", poster: "/depoimentos/luciane.jpg" },
 ];
 
 export const brand = {

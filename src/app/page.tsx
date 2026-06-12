@@ -37,7 +37,7 @@ export default function Home() {
         <Section
           eyebrow="Cursos disponíveis"
           title="Duas trilhas, uma só excelência"
-          intro="Especialização longa pela UNIFOR ou aperfeiçoamento intensivo pela Clinicare Training. Escolha o caminho mais alinhado ao seu momento."
+          intro="Você escolhe entre UNIFOR e Clinicare — especialização longa pela Universidade ou aperfeiçoamento intensivo pela Clinicare Training. Na Clinicare, você atende pacientes já a partir do 1º módulo; na UNIFOR, a prática clínica começa a partir do 3º módulo."
           id="cursos"
         >
           <CourseCarousel autoplayMs={7000} />
@@ -71,10 +71,9 @@ export default function Home() {
 function Header() {
   return (
     <header className="sticky top-0 z-40 bg-white/85 backdrop-blur-md border-b border-foreground/5">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="flex items-baseline gap-2">
-          <span className="text-xl font-display text-brand-blue tracking-tight">ANBRO</span>
-          <span className="text-[10px] tracking-[0.24em] uppercase text-muted">Cursos</span>
+      <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a href="#" className="flex items-center">
+          <Image src="/logo-anbro.png" alt="ANBRO — Harmonização Orofacial" width={1500} height={540} priority className="h-12 lg:h-14 w-auto" />
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-foreground/70">
           <a href="#cursos" className="hover:text-brand-blue transition-colors">Cursos</a>
@@ -142,7 +141,7 @@ function Hero() {
           <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl fade-up delay-300">
             <Stat value="+13" label="anos de experiência" />
             <Stat value="+25" label="turmas formadas" />
-            <Stat value="2" label="chancelas (UNIFOR + Clinicare)" />
+            <Stat value="2" label="chancelas - UNIFOR/Clinicare" />
             <Stat value="100%" label="base científica" />
           </div>
         </div>
@@ -186,7 +185,7 @@ function Section({
     <section id={id} className={`${bg} py-24 lg:py-32`}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-3xl mb-12 lg:mb-16">
-          <p className="text-xs tracking-[0.22em] uppercase text-brand-blue">{eyebrow}</p>
+          <p className="text-sm tracking-[0.24em] uppercase font-semibold text-brand-blue">{eyebrow}</p>
           <h2 className="mt-3 text-3xl lg:text-5xl leading-tight">{title}</h2>
           {intro && <p className="mt-5 text-muted text-lg leading-relaxed">{intro}</p>}
         </div>
@@ -202,7 +201,7 @@ function Testimonials() {
     <section id="depoimentos" className="bg-brand-blue text-white py-24 lg:py-32">
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-3xl mb-12">
-          <p className="text-xs tracking-[0.22em] uppercase text-brand-lime">Depoimentos</p>
+          <p className="text-sm tracking-[0.24em] uppercase font-semibold text-brand-lime">Depoimentos</p>
           <h2 className="mt-3 text-3xl lg:text-5xl text-white leading-tight">
             Quem passou pela ANBRO, fala por nós.
           </h2>
@@ -223,7 +222,7 @@ function Testimonials() {
               </div>
               <figcaption className="px-5 py-4">
                 <p className="text-white">{t.name}</p>
-                <p className="text-xs text-white/60 mt-0.5">Aluno(a) ANBRO</p>
+                <p className="text-xs text-white/60 mt-0.5">{t.org}</p>
               </figcaption>
             </figure>
           ))}
@@ -240,7 +239,7 @@ function MoreInfo() {
     <Section
       eyebrow="Mais informações"
       title="O que você vai aprender no HOF Custom Training"
-      intro="Cinco módulos teórico-laboratoriais com clínica integrada — em todos eles você atende pacientes reais, do primeiro ao último encontro."
+      intro="Cinco módulos com clínica integrada — você atende pacientes em todos eles. A partir do segundo módulo, cada encontro soma novos procedimentos ao que já vinha sendo praticado; ao final, você atende em todas as frentes da grade."
       variant="muted"
       id="programa"
     >
@@ -269,6 +268,14 @@ function MoreInfo() {
                 </li>
               ))}
             </ul>
+            {m.practice && (
+              <div className="mt-5 flex flex-wrap items-baseline gap-2 text-sm border-t border-brand-blue/10 pt-4">
+                <span className="text-[10px] tracking-[0.18em] uppercase text-brand-blue font-medium">
+                  Atendimento clínico no mês:
+                </span>
+                <span className="text-foreground/85">{m.practice}</span>
+              </div>
+            )}
           </li>
         ))}
       </ol>

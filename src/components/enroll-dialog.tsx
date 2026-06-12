@@ -3,6 +3,7 @@
 import { useActionState, useEffect, useRef, useState } from "react";
 import type { CourseId } from "@/lib/data";
 import { submitEnrollment, type EnrollState } from "@/app/actions";
+import { track, trackCustom } from "@/lib/fpixel";
 
 const initialState: EnrollState = { status: "idle" };
 
@@ -17,20 +18,30 @@ export function EnrollDialog({ open, onClose, course, courseTitle }: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [state, formAction, pending] = useActionState(submitEnrollment, initialState);
   const [formed, setFormed] = useState<"sim" | "nao" | "">("");
+  const leadFired = useRef(false);
 
   useEffect(() => {
     const d = dialogRef.current;
     if (!d) return;
-    if (open && !d.open) d.showModal();
+    if (open && !d.open) {
+      d.showModal();
+      trackCustom("AbriuFormulario", { course, course_title: courseTitle });
+    }
     if (!open && d.open) d.close();
-  }, [open]);
+  }, [open, course, courseTitle]);
 
   useEffect(() => {
     if (state.status === "success") {
+      if (!leadFired.current) {
+        track("Lead", { content_name: courseTitle, course });
+        leadFired.current = true;
+      }
       const t = setTimeout(() => onClose(), 3500);
       return () => clearTimeout(t);
+    } else {
+      leadFired.current = false;
     }
-  }, [state.status, onClose]);
+  }, [state.status, onClose, course, courseTitle]);
 
   return (
     <dialog
