@@ -111,8 +111,8 @@ export const teachers = [
     ],
   },
   {
-    slug: "jose-romulo",
-    name: "José Rômulo",
+    slug: "romulo-medeiros",
+    name: "Rômulo Medeiros",
     photo: "/professores/romulo.jpg",
     titles: [
       "Residência em Cirurgia e Traumatologia Bucomaxilofacial",
